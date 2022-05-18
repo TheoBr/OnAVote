@@ -21,25 +21,25 @@ export default function Home() {
 
   if (isLoading)
     return (
-      <div className="antialiased min-h-screen flex items-center justify-center">
+      <div className="flex items-center justify-center min-h-screen antialiased">
         <p className="text-white/40">Loading...</p>
       </div>
     );
 
   return (
-    <div className="p-6 min-h-screen w-screen items-stretch relative">
+    <div className="relative items-stretch w-screen min-h-screen p-6">
       <Head>
         <title>Home | OnAVote</title>
       </Head>
-      <header className="header flex w-full justify-between items-center">
+      <header className="flex items-center justify-between w-full header">
         <h1 className="text-4xl font-bold">OnAVote</h1>
         <Link href="/create">
-          <a className="bg-gray-300 rounded text-gray-800 p-4">
+          <a className="p-4 text-gray-800 bg-gray-400 rounded">
             Create New Question
           </a>
         </Link>
       </header>
-      <div className="grid grid-cols-1 gap-y-5 md:grid-cols-4 md:gap-x-5 mt-10">
+      <div className="grid grid-cols-1 mt-10 gap-y-5 md:grid-cols-4 md:gap-x-5">
         {data?.map((question) => (
           <QuestionCard
             key={question.id}
@@ -51,7 +51,7 @@ export default function Home() {
 
       {/* Toast that will show at the bottom-right of the screen */}
       {showToast && (
-        <div className="absolute bottom-5 right-10 flex items-center justify-center bg-slate-50/10 p-3 rounded-md w-1/5">
+        <div className="absolute flex items-center justify-center w-1/5 p-3 rounded-md bottom-5 right-10 bg-slate-50/10">
           <span className="text-xs font-semibold">
             Link Copied to Clipboard!
           </span>

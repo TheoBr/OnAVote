@@ -7,15 +7,15 @@ const QuestionCard: React.FC<{
   copyToClipboard: (question: PollQuestion) => void;
 }> = ({ question, copyToClipboard }) => {
   return (
-    <div key={question.id} className="card bg-base-100 shadow-xl">
+    <div key={question.id} className="bg-gray-400 shadow-xl card">
       <div className="card-body">
-        <h1 key={question.id} className="card-title">
+        <h1 key={question.id} className="text-gray-800 card-title">
           {question.question}
         </h1>
-        <p className="text-sm text-white/30">
+        <p className="text-sm text-white/60">
           Created on {question.createdAt.toDateString()}
         </p>
-        <div className="card-actions mt-5 items-center justify-between">
+        <div className="items-center justify-between mt-5 card-actions">
           <Link href={`/question/${question.id}`}>
             <a className="">View</a>
           </Link>
@@ -25,7 +25,7 @@ const QuestionCard: React.FC<{
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
+              className="w-4 h-4"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

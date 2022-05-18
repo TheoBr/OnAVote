@@ -40,22 +40,22 @@ const CreateQuestionForm = () => {
 
   if (isLoading || data)
     return (
-      <div className="antialiased min-h-screen flex items-center justify-center">
+      <div className="flex items-center justify-center min-h-screen antialiased">
         <p className="text-white/40">Loading...</p>
       </div>
     );
 
   return (
-    <div className="antialiased text-gray-100 p-6 min-h-screen">
+    <div className="min-h-screen p-6 antialiased text-gray-100">
       <Head>
         <title>Create | OnAVote</title>
       </Head>
-      <header className="header flex w-full justify-between">
+      <header className="flex justify-between w-full header">
         <Link href={"/"}>
           <h1 className="text-4xl font-bold cursor-pointer">OnAVote</h1>
         </Link>
       </header>
-      <div className="max-w-xl mx-auto py-12 md:max-w-2xl">
+      <div className="max-w-xl py-12 mx-auto md:max-w-2xl">
         <h2 className="text-2xl font-bold">Create a new poll</h2>
 
         <form
@@ -64,24 +64,24 @@ const CreateQuestionForm = () => {
           })}
           className="w-full"
         >
-          <div className="mt-8 w-full">
-            <div className="form-control my-10 w-full">
+          <div className="w-full mt-8">
+            <div className="w-full my-10 form-control">
               <label className="label">
-                <span className="label-text font-semibold text-base">
+                <span className="text-base font-semibold label-text">
                   Your Question
                 </span>
               </label>
               <input
                 {...register("question")}
                 type="text"
-                className="input input-bordered w-full block text-gray-300 rounded-md"
+                className="block w-full text-gray-500 rounded-md input input-bordered"
                 placeholder="How do magnets work?"
               />
               {errors.question && (
                 <p className="text-red-400">{errors.question.message}</p>
               )}
             </div>
-            <div className="grid grid-cols-1 w-full gap-x-5 gap-y-3 md:grid-cols-2">
+            <div className="grid w-full grid-cols-1 gap-x-5 gap-y-3 md:grid-cols-2">
               {fields.map((field, index) => {
                 return (
                   <div key={field.id}>
@@ -94,12 +94,12 @@ const CreateQuestionForm = () => {
                         {...register(`options.${index}.text`, {
                           required: true,
                         })}
-                        className="input input-bordered w-full text-gray-300 font-medium"
+                        className="w-full font-medium text-gray-500 input input-bordered"
                       />
                       <button type="button" onClick={() => remove(index)}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6 text-gray-500"
+                          className="w-6 h-6 text-gray-500"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -130,7 +130,7 @@ const CreateQuestionForm = () => {
             <div className="w-full mt-10">
               <input
                 type="submit"
-                className="btn w-full"
+                className="w-full btn"
                 value="Create question"
               />
             </div>
