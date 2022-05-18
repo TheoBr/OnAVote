@@ -39,21 +39,21 @@ const QuestionsPageContent: React.FC<{ id: string }> = ({ id }) => {
   if (data && data != undefined) getTotalVotes(data.votes);
 
   return (
-    <div className="p-6 min-h-screen w-screen container">
+    <div className="container w-screen min-h-screen p-6">
       <Head>
         <title>Question | OnAVote</title>
       </Head>
-      <header className="flex w-full justify-between mb-10 items-center">
+      <header className="flex items-center justify-between w-full mb-10">
         <Link href={"/"}>
           <h1 className="text-4xl font-bold cursor-pointer">OnAVote</h1>
         </Link>
         {data?.isOwner && (
-          <div className="bg-gray-700 rounded-md p-3">You made this!</div>
+          <div className="p-3 bg-gray-700 rounded-md">You made this!</div>
         )}
       </header>
 
       <main className="max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold mb-10 text-center">
+        <h1 className="mb-10 text-2xl font-bold text-center">
           {data?.question?.question}
         </h1>
 
@@ -69,7 +69,7 @@ const QuestionsPageContent: React.FC<{ id: string }> = ({ id }) => {
                     </p>
                   </div>
                   <progress
-                    className="progress progress-secondary w-full"
+                    className="w-full progress progress-secondary"
                     value={data?.votes?.[index]?._count ?? 0}
                     max={totalVotes}
                   ></progress>
@@ -83,7 +83,7 @@ const QuestionsPageContent: React.FC<{ id: string }> = ({ id }) => {
                   mutate({ questionId: data.question!.id, option: index })
                 }
                 key={index}
-                className="btn btn-outline"
+                className="btn"
               >
                 {(option as any).text}
               </button>
